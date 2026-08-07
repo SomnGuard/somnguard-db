@@ -1,0 +1,17 @@
+# === Local environment files ===
+.env
+.env.local
+.env.*.local
+
+# === Liquibase ===
+liquibase.properties
+
+# === OS ===
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# === Editors ===
+.vscode/
+.idea/
+*.swp
