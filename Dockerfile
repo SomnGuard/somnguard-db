@@ -1,4 +1,4 @@
 FROM liquibase/liquibase:4.33
 
-LABEL maintainer="SomnGuard"
-LABEL description="Liquibase runner for SomnGuard PostgreSQL database"
+LABEL maintainer="Somnguard"
+LABEL description="Liquibase runner for Somnguard PostgreSQL database"
