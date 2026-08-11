@@ -6,7 +6,7 @@ Este repositorio organiza las migraciones de base de datos de forma modular y ma
 
 - Cada carpeta representa una etapa del ciclo de vida de la base de datos.
 - Los archivos con nombre `0000changelog.yaml` actúan como punto de entrada de cada subárea.
-- Los changesets contienen el SQL directamente dentro del YAML, lo que facilita la revisión y el mantenimiento.
+- Los changesets referencian archivos `.sql` (vía `sqlFile`) o pueden incluir SQL inline cuando sea necesario, lo que facilita la revisión y el mantenimiento.
 - El archivo maestro en `changelog/changelog-master.yaml` reúne todas las partes para ejecutar la migración completa.
 
 ## Explicación de las carpetas
