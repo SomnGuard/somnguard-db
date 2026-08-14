@@ -1,0 +1,3 @@
+DROP INDEX IF EXISTS parameterization.ix_event_type_event_category_id;
+DROP INDEX IF EXISTS parameterization.ix_event_type_severity_id;
+DROP INDEX IF EXISTS parameterization.ix_event_type_sound_pattern_id;

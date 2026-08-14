@@ -1,0 +1,2 @@
+DROP INDEX IF EXISTS device_management.ix_device_assignment_device_id;
+DROP INDEX IF EXISTS device_management.ix_device_assignment_assigned_to_user_id;
