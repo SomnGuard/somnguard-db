@@ -1,1 +1,301 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: f3bb193a-8f5e-402d-9fb1-38b5a90fe83b
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.user table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 001_create_security_user.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/001_drop_security_user.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: d30d916f-243e-4ce1-bcf9-b8dd92729168
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.role table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 002_create_security_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/002_drop_security_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: b426db41-df0f-4983-8f5d-a35e04cec194
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.module table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 003_create_security_module.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/003_drop_security_module.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 8c2a2122-b9a9-4ef5-b40f-69352834436d
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.feature table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 004_create_security_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/004_drop_security_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 49fb70fc-fc51-43e9-92b8-752ccb8c0c0c
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.role_feature junction table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 005_create_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/005_drop_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 102cdab1-1aa6-495f-b815-911d5174183a
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.user_role junction table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 006_create_security_user_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/006_drop_security_user_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 50ba406e-7031-467f-ae04-6232eb0fb1f1
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.password_reset_request table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 007_create_security_password_reset_request.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/007_drop_security_password_reset_request.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: da0179ef-b84d-4eec-8e65-a12a4f905a71
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the security.audit_login table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 008_create_security_audit_login.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/008_drop_security_audit_login.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 4a827ad1-8cf6-4397-9317-c6605e8063bc
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the parameterization.event_category table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 009_create_parameterization_event_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/009_drop_parameterization_event_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 1c8c4a72-8f0c-4763-b607-781b3a668c3c
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the parameterization.severity table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 010_create_parameterization_severity.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/010_drop_parameterization_severity.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: f5ebb94a-fd16-4ff8-8791-251445e7f6eb
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the parameterization.media_type table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 011_create_parameterization_media_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/011_drop_parameterization_media_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 87053fd4-93aa-4a8b-8fc1-7e662d50a16a
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the parameterization.sound_pattern table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 012_create_parameterization_sound_pattern.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/012_drop_parameterization_sound_pattern.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 75ea1659-972c-493c-8810-5987080d03e3
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the parameterization.event_type table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 013_create_parameterization_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/013_drop_parameterization_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: de1e230e-bc36-4065-945d-6f48efeaf087
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the device_management.device table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 014_create_device_management_device.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/014_drop_device_management_device.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 2ed157a9-8761-41b5-aa19-abd9a054d937
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the device_management.device_assignment table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 015_create_device_management_device_assignment.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/015_drop_device_management_device_assignment.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: d11c5979-df58-4062-80f5-eef44eb109c3
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the device_management.device_config table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 016_create_device_management_device_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/016_drop_device_management_device_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: a95ca33d-de9f-4dcc-a5cb-989a79efba32
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the telemetry_service.event table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 017_create_telemetry_service_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/017_drop_telemetry_service_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: d4e563fc-fb0e-4a43-83ff-1ffb9b4115d5
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the telemetry_service.evidence table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 018_create_telemetry_service_evidence.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/018_drop_telemetry_service_evidence.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: d46b3ea8-74c1-4b1c-aeed-1109acc1c012
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the telemetry_service.alert_log table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 019_create_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/019_drop_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: ed6dcb66-d0a6-4690-94f4-a6668fe16999
+      author: JuanCarlos
+      labels: "BD-01-dev,ddl,base,tables"
+      comment: Creates the monitoring.notification table for the database baseline.
+      changes:
+        - sqlFile:
+            path: 020_create_monitoring_notification.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/020_drop_monitoring_notification.sql
+            relativeToChangelogFile: true
+            stripComments: false

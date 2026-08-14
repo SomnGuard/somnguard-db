@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS parameterization.sound_pattern;
