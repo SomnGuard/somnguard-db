@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS security.password_reset_request;

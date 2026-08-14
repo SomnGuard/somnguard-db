@@ -1,0 +1,2 @@
+CREATE INDEX IF NOT EXISTS ix_device_assignment_device_id ON device_management.device_assignment (device_id);
+CREATE INDEX IF NOT EXISTS ix_device_assignment_assigned_to_user_id ON device_management.device_assignment (assigned_to_user_id);

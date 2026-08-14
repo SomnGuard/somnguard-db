@@ -1,1 +1,76 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 60888613-1e9b-40bc-b368-86d62f9cb2c1
+      author: JuanCarlos
+      labels: "BD-01-dev,dml,base,inserts"
+      comment: Seeds the initial event_category catalog records.
+      changes:
+        - sqlFile:
+            path: 001_insert_event_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/001_delete_event_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: ec598f64-368d-44c9-b232-4d838982a023
+      author: JuanCarlos
+      labels: "BD-01-dev,dml,base,inserts"
+      comment: Seeds the initial severity catalog records.
+      changes:
+        - sqlFile:
+            path: 002_insert_severity.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/002_delete_severity.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 10501eff-67ab-4a6a-acc0-ce51b64f4fd7
+      author: JuanCarlos
+      labels: "BD-01-dev,dml,base,inserts"
+      comment: Seeds the initial media_type catalog records.
+      changes:
+        - sqlFile:
+            path: 003_insert_media_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/003_delete_media_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 1ae8d836-471d-4c90-946a-a33c001a9627
+      author: JuanCarlos
+      labels: "BD-01-dev,dml,base,inserts"
+      comment: Seeds the initial sound_pattern catalog records.
+      changes:
+        - sqlFile:
+            path: 004_insert_sound_pattern.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/004_delete_sound_pattern.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 88183b2e-b66d-4fd5-8229-b329fc8314a3
+      author: JuanCarlos
+      labels: "BD-01-dev,dml,base,inserts"
+      comment: Seeds the initial event_type catalog records referencing existing categories, severities and sound patterns.
+      changes:
+        - sqlFile:
+            path: 005_insert_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/005_delete_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false

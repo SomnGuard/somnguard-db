@@ -1,0 +1,2 @@
+DELETE FROM parameterization.event_type
+WHERE code IN ('EV-SOM-01', 'EV-SOM-02', 'EV-SOM-03', 'EV-SOM-04', 'EV-SOM-05', 'EV-DIS-01', 'EV-DIS-02', 'EV-DIS-03', 'EV-DIS-04', 'EV-DIS-05', 'EV-CIN-01', 'EV-CIN-02', 'EV-SYS-01', 'EV-SYS-02', 'EV-SYS-03', 'EV-SYS-04', 'EV-SYS-05', 'EV-SYS-06');
