@@ -1,9 +1,9 @@
 databaseChangeLog:
   - changeSet:
-      id: 72bc35a2-750e-4cf9-b386-4f7f04b389d6
-      author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,indexes"
-      comment: Creates supporting indexes on the security schema tables.
+      id: 001-create-security-indexes
+      author: somnguard
+      labels: "BD-01,ddl,indexes,security"
+      comment: Creates indexes for security module (FKs and unique columns)
       changes:
         - sqlFile:
             path: 001_create_security_indexes.sql
@@ -15,10 +15,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 66f2a925-773b-481f-9e70-0143110215f8
-      author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,indexes"
-      comment: Creates supporting indexes on the parameterization schema tables.
+      id: 002-create-parameterization-indexes
+      author: somnguard
+      labels: "BD-01,ddl,indexes,parameterization"
+      comment: Creates indexes for parameterization module (FKs)
       changes:
         - sqlFile:
             path: 002_create_parameterization_indexes.sql
@@ -30,10 +30,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 23c44453-f131-4a65-be2e-a64d3aa10d8e
-      author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,indexes"
-      comment: Creates supporting indexes on the device_management schema tables.
+      id: 003-create-device-management-indexes
+      author: somnguard
+      labels: "BD-01,ddl,indexes,device-management"
+      comment: Creates indexes for device_management module (FKs)
       changes:
         - sqlFile:
             path: 003_create_device_management_indexes.sql
@@ -45,10 +45,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 8e23c200-3f90-473a-8e02-3fc5af7ad912
-      author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,indexes"
-      comment: Creates supporting indexes on the telemetry_service schema tables.
+      id: 004-create-telemetry-service-indexes
+      author: somnguard
+      labels: "BD-01,ddl,indexes,telemetry-service"
+      comment: Creates indexes for telemetry_service module (FKs)
       changes:
         - sqlFile:
             path: 004_create_telemetry_service_indexes.sql
@@ -60,10 +60,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: e3bd078b-e728-435a-8d65-89751577c80b
-      author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,indexes"
-      comment: Creates supporting indexes on the monitoring schema tables.
+      id: 005-create-monitoring-indexes
+      author: somnguard
+      labels: "BD-01,ddl,indexes,monitoring"
+      comment: Creates indexes for monitoring module (FKs)
       changes:
         - sqlFile:
             path: 005_create_monitoring_indexes.sql
