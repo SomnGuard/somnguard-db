@@ -1,1 +1,181 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 001-fk-security-feature-module
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FK from security.feature to security.module
+      changes:
+        - sqlFile:
+            path: 001_fk_security_feature_module.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/001_rollback_fk_security_feature_module.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 002-fk-security-role-feature
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FKs from security.role_feature to security.role and security.feature
+      changes:
+        - sqlFile:
+            path: 002_fk_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/002_rollback_fk_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 003-fk-security-user-role
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FKs from security.user_role to security.user and security.role
+      changes:
+        - sqlFile:
+            path: 003_fk_security_user_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/003_rollback_fk_security_user_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 004-fk-security-password-reset-request
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FK from security.password_reset_request to security.user
+      changes:
+        - sqlFile:
+            path: 004_fk_security_password_reset_request.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/004_rollback_fk_security_password_reset_request.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 005-fk-security-audit-login
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FK from security.audit_login to security.user
+      changes:
+        - sqlFile:
+            path: 005_fk_security_audit_login.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/005_rollback_fk_security_audit_login.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 006-fk-parameterization-event-type
+      author: somnguard
+      labels: "BD-01,ddl,alter,parameterization"
+      comment: Adds FKs from parameterization.event_type to event_category, severity, sound_pattern
+      changes:
+        - sqlFile:
+            path: 006_fk_parameterization_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/006_rollback_fk_parameterization_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 007-fk-device-management-assignment
+      author: somnguard
+      labels: "BD-01,ddl,alter,device-management"
+      comment: Adds FKs from device_management.device_assignment to device and user
+      changes:
+        - sqlFile:
+            path: 007_fk_device_management_assignment.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/007_rollback_fk_device_management_assignment.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 008-fk-device-management-config
+      author: somnguard
+      labels: "BD-01,ddl,alter,device-management"
+      comment: Adds FK from device_management.device_config to device
+      changes:
+        - sqlFile:
+            path: 008_fk_device_management_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/008_rollback_fk_device_management_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 009-fk-telemetry-service-event
+      author: somnguard
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Adds FKs from telemetry_service.event to device and event_type
+      changes:
+        - sqlFile:
+            path: 009_fk_telemetry_service_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/009_rollback_fk_telemetry_service_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 010-fk-telemetry-service-evidence
+      author: somnguard
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Adds FKs from telemetry_service.evidence to event and media_type
+      changes:
+        - sqlFile:
+            path: 010_fk_telemetry_service_evidence.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/010_rollback_fk_telemetry_service_evidence.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 011-fk-telemetry-service-alert-log
+      author: somnguard
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Adds FKs from telemetry_service.alert_log to event, sound_pattern, severity
+      changes:
+        - sqlFile:
+            path: 011_fk_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/011_rollback_fk_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 012-fk-monitoring-notification
+      author: somnguard
+      labels: "BD-01,ddl,alter,monitoring"
+      comment: Adds FKs from monitoring.notification to user and alert_log
+      changes:
+        - sqlFile:
+            path: 012_fk_monitoring_notification.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/012_rollback_fk_monitoring_notification.sql
+            relativeToChangelogFile: true
+            stripComments: false
