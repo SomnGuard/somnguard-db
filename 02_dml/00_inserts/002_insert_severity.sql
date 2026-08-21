@@ -1,12 +1,12 @@
-INSERT INTO parameterization.severity (name, code, level, color)
+INSERT INTO parameterization.severity (code, name, priority, is_active)
 VALUES
-    ('Informativo', 'informativo', 1, 'blue'),
-    ('Aviso', 'aviso', 2, 'cyan'),
-    ('Advertencia', 'advertencia', 3, 'yellow'),
-    ('Leve', 'leve', 4, 'green'),
-    ('Moderada', 'moderada', 5, 'orange'),
-    ('Alta', 'alta', 6, 'darkorange'),
-    ('Severa', 'severa', 7, 'red'),
-    ('Crítica', 'critica', 8, 'darkred'),
-    ('Error', 'error', 9, 'black')
+    ('informativo', 'Informativo', 1, TRUE),
+    ('aviso', 'Aviso', 2, TRUE),
+    ('advertencia', 'Advertencia', 3, TRUE),
+    ('leve', 'Leve', 4, TRUE),
+    ('moderada', 'Moderada', 5, TRUE),
+    ('alta', 'Alta', 6, TRUE),
+    ('severa', 'Severa', 7, TRUE),
+    ('critica', 'Crítica', 8, TRUE),
+    ('error', 'Error', 9, TRUE)
 ON CONFLICT (code) DO NOTHING;
