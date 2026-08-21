@@ -1,5 +1,5 @@
-INSERT INTO parameterization.event_type (event_category_id, severity_id, sound_pattern_id, name, code, description)
-SELECT ec.event_category_id, s.severity_id, sp.sound_pattern_id, t.name, t.code, t.description
+INSERT INTO parameterization.event_type (event_category_id, default_severity_id, default_sound_pattern_id, name, code, description, is_active)
+SELECT ec.id, s.id, sp.id, t.name, t.code, t.description, TRUE
 FROM (
     VALUES
         ('somnolencia_fatiga', 'leve', 'AS-01', 'Parpadeo anómalo', 'EV-SOM-01', 'Indicadores: parpadeo fuera del rango normal. Umbral: > 25 o < 5 parpadeos/min por 15 s. Acción: registrar evento y emitir alerta.'),
