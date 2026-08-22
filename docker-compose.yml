@@ -43,6 +43,7 @@ services:
       - --url=jdbc:postgresql://postgres:5432/${POSTGRES_DB}
       - --username=${POSTGRES_USER}
       - --password=${POSTGRES_PASSWORD}
+      - --contexts=01_ddl,02_dml,03_dcl,04_tcl
 
 volumes:
   postgres_data:
