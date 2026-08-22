@@ -179,3 +179,63 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/012_rollback_fk_monitoring_notification.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 013-add-is-active-to-security-role-feature
+      author: somnguard
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds is_active column to security.role_feature per audit convention
+      changes:
+        - sqlFile:
+            path: 013_add_is_active_to_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/013_rollback_add_is_active_to_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 014-cascade-evidence-event
+      author: somnguard
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Changes evidence.event_id FK to ON DELETE CASCADE (composition child)
+      changes:
+        - sqlFile:
+            path: 014_cascade_evidence_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/014_rollback_cascade_evidence_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 015-cascade-alert-log-event
+      author: somnguard
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Changes alert_log.event_id FK to ON DELETE CASCADE (composition child)
+      changes:
+        - sqlFile:
+            path: 015_cascade_alert_log_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/015_rollback_cascade_alert_log_event.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 016-cascade-notification-alert-log
+      author: somnguard
+      labels: "BD-01,ddl,alter,monitoring"
+      comment: Changes notification.alert_log_id FK to ON DELETE CASCADE (composition child)
+      changes:
+        - sqlFile:
+            path: 016_cascade_notification_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/016_rollback_cascade_notification_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
