@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 001-fk-security-feature-module
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,security"
       comment: Adds FK from security.feature to security.module
       changes:
@@ -16,7 +16,7 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 002-fk-security-role-feature
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,security"
       comment: Adds FKs from security.role_feature to security.role and security.feature
       changes:
@@ -31,7 +31,7 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 003-fk-security-user-role
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,security"
       comment: Adds FKs from security.user_role to security.user and security.role
       changes:
@@ -46,7 +46,7 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 004-fk-security-password-reset-request
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,security"
       comment: Adds FK from security.password_reset_request to security.user
       changes:
@@ -61,7 +61,7 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 005-fk-security-audit-login
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,security"
       comment: Adds FK from security.audit_login to security.user
       changes:
@@ -76,7 +76,7 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 006-fk-parameterization-event-type
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,parameterization"
       comment: Adds FKs from parameterization.event_type to event_category, severity, sound_pattern
       changes:
@@ -90,152 +90,152 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 007-fk-device-management-assignment
-      author: somnguard
+      id: 007-fk-parameterization-status
+      author: CristianJPalma
+      labels: "BD-01,ddl,alter,parameterization"
+      comment: Adds FK from parameterization.status to status_category
+      changes:
+        - sqlFile:
+            path: 007_fk_parameterization_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/007_rollback_fk_parameterization_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 008-fk-parameterization-status-transition
+      author: CristianJPalma
+      labels: "BD-01,ddl,alter,parameterization"
+      comment: Adds FKs from parameterization.status_transition to status
+      changes:
+        - sqlFile:
+            path: 008_fk_parameterization_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/008_rollback_fk_parameterization_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 009-fk-device-management-assignment
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,device-management"
       comment: Adds FKs from device_management.device_assignment to device and user
       changes:
         - sqlFile:
-            path: 007_fk_device_management_assignment.sql
+            path: 009_fk_device_management_assignment.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/007_rollback_fk_device_management_assignment.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/009_rollback_fk_device_management_assignment.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 008-fk-device-management-config
-      author: somnguard
+      id: 010-fk-device-management-config
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,device-management"
       comment: Adds FK from device_management.device_config to device
       changes:
         - sqlFile:
-            path: 008_fk_device_management_config.sql
+            path: 010_fk_device_management_config.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/008_rollback_fk_device_management_config.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/010_rollback_fk_device_management_config.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 009-fk-telemetry-service-event
-      author: somnguard
-      labels: "BD-01,ddl,alter,telemetry-service"
-      comment: Adds FKs from telemetry_service.event to device and event_type
+      id: 011-fk-device-management-config-history
+      author: CristianJPalma
+      labels: "BD-01,ddl,alter,device-management"
+      comment: Adds FK from device_management.device_config_history to device_config
       changes:
         - sqlFile:
-            path: 009_fk_telemetry_service_event.sql
+            path: 011_fk_device_management_config_history.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/009_rollback_fk_telemetry_service_event.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/011_rollback_fk_device_management_config_history.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 010-fk-telemetry-service-evidence
-      author: somnguard
+      id: 012-fk-telemetry-service-event
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,telemetry-service"
-      comment: Adds FKs from telemetry_service.evidence to event and media_type
+      comment: Adds FKs from telemetry_service.event to device, event_type, severity, sound_pattern
       changes:
         - sqlFile:
-            path: 010_fk_telemetry_service_evidence.sql
+            path: 012_fk_telemetry_service_event.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/010_rollback_fk_telemetry_service_evidence.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/012_rollback_fk_telemetry_service_event.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 011-fk-telemetry-service-alert-log
-      author: somnguard
+      id: 013-fk-telemetry-service-evidence
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,telemetry-service"
-      comment: Adds FKs from telemetry_service.alert_log to event, sound_pattern, severity
+      comment: Adds FKs from telemetry_service.evidence to event (CASCADE) and media_type
       changes:
         - sqlFile:
-            path: 011_fk_telemetry_service_alert_log.sql
+            path: 013_fk_telemetry_service_evidence.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/011_rollback_fk_telemetry_service_alert_log.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/013_rollback_fk_telemetry_service_evidence.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 012-fk-monitoring-notification
-      author: somnguard
+      id: 014-fk-telemetry-service-alert-log
+      author: CristianJPalma
+      labels: "BD-01,ddl,alter,telemetry-service"
+      comment: Adds FKs from telemetry_service.alert_log to event (CASCADE), sound_pattern, severity, device
+      changes:
+        - sqlFile:
+            path: 014_fk_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/014_rollback_fk_telemetry_service_alert_log.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 015-fk-monitoring-notification
+      author: CristianJPalma
       labels: "BD-01,ddl,alter,monitoring"
-      comment: Adds FKs from monitoring.notification to user and alert_log
+      comment: Adds FKs from monitoring.notification to user and alert_log (CASCADE)
       changes:
         - sqlFile:
-            path: 012_fk_monitoring_notification.sql
+            path: 015_fk_monitoring_notification.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/012_rollback_fk_monitoring_notification.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/015_rollback_fk_monitoring_notification.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 013-add-is-active-to-security-role-feature
-      author: somnguard
-      labels: "BD-01,ddl,alter,security"
-      comment: Adds is_active column to security.role_feature per audit convention
+      id: 016-fk-status-audit-tables
+      author: CristianJPalma
+      labels: "BD-01,ddl,alter,audit"
+      comment: Adds FKs from status audit tables to their parent entities
       changes:
         - sqlFile:
-            path: 013_add_is_active_to_security_role_feature.sql
+            path: 016_fk_status_audit_tables.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/013_rollback_add_is_active_to_security_role_feature.sql
-            relativeToChangelogFile: true
-            stripComments: false
-  - changeSet:
-      id: 014-cascade-evidence-event
-      author: somnguard
-      labels: "BD-01,ddl,alter,telemetry-service"
-      comment: Changes evidence.event_id FK to ON DELETE CASCADE (composition child)
-      changes:
-        - sqlFile:
-            path: 014_cascade_evidence_event.sql
-            relativeToChangelogFile: true
-            stripComments: false
-      rollback:
-        - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/014_rollback_cascade_evidence_event.sql
-            relativeToChangelogFile: true
-            stripComments: false
-  - changeSet:
-      id: 015-cascade-alert-log-event
-      author: somnguard
-      labels: "BD-01,ddl,alter,telemetry-service"
-      comment: Changes alert_log.event_id FK to ON DELETE CASCADE (composition child)
-      changes:
-        - sqlFile:
-            path: 015_cascade_alert_log_event.sql
-            relativeToChangelogFile: true
-            stripComments: false
-      rollback:
-        - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/015_rollback_cascade_alert_log_event.sql
-            relativeToChangelogFile: true
-            stripComments: false
-  - changeSet:
-      id: 016-cascade-notification-alert-log
-      author: somnguard
-      labels: "BD-01,ddl,alter,monitoring"
-      comment: Changes notification.alert_log_id FK to ON DELETE CASCADE (composition child)
-      changes:
-        - sqlFile:
-            path: 016_cascade_notification_alert_log.sql
-            relativeToChangelogFile: true
-            stripComments: false
-      rollback:
-        - sqlFile:
-            path: ../../05_rollbacks/01_ddl/04_alter/016_rollback_cascade_notification_alert_log.sql
+            path: ../../05_rollbacks/01_ddl/04_alter/016_rollback_fk_status_audit_tables.sql
             relativeToChangelogFile: true
             stripComments: false

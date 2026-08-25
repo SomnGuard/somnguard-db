@@ -1,0 +1,1 @@
+DELETE FROM security.role_feature WHERE role_id IN (SELECT id FROM security.role WHERE code IN ('admin', 'user'));

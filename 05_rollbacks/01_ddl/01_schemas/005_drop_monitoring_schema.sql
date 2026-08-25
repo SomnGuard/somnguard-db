@@ -1,1 +1,1 @@
-DROP SCHEMA IF EXISTS monitoring;
+DROP SCHEMA IF EXISTS monitoring CASCADE;

@@ -1,1 +1,1 @@
-DROP SCHEMA IF EXISTS device_management;
+DROP SCHEMA IF EXISTS device_management CASCADE;

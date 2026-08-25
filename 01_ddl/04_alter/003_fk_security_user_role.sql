@@ -1,7 +1,7 @@
 ALTER TABLE security.user_role
     ADD CONSTRAINT fk_user_role_user
     FOREIGN KEY (user_id) REFERENCES security."user" (id)
-    ON UPDATE RESTRICT ON DELETE CASCADE;
+    ON UPDATE RESTRICT ON DELETE RESTRICT;
 
 ALTER TABLE security.user_role
     ADD CONSTRAINT fk_user_role_role
