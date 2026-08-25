@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No custom functions currently
+  # Placeholder for future functions if needed

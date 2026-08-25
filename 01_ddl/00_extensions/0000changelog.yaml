@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No extensions required; gen_random_uuid() is native in PostgreSQL 16
+  # Placeholder for future extensions if needed

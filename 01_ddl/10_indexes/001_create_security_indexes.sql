@@ -1,4 +1,4 @@
--- security.feature -> security.module
+-- security.feature -> security.module (FK index created in 04_alter rollback, but explicit index here)
 CREATE INDEX IF NOT EXISTS ix_feature_module_id ON security.feature (module_id);
 
 -- security.role_feature -> security.role
@@ -17,8 +17,7 @@ CREATE INDEX IF NOT EXISTS ix_password_reset_request_user_id ON security.passwor
 -- security.audit_login -> security.user
 CREATE INDEX IF NOT EXISTS ix_audit_login_user_id ON security.audit_login (user_id);
 
--- Unique columns (email, name, code) already have implicit indexes from UNIQUE constraints
--- Adding explicit indexes for frequently queried columns
-CREATE INDEX IF NOT EXISTS ix_user_email ON security."user" (email) WHERE deleted_at IS NULL;
-CREATE INDEX IF NOT EXISTS ix_role_name ON security.role (name) WHERE deleted_at IS NULL;
-CREATE INDEX IF NOT EXISTS ix_module_code ON security.module (code) WHERE deleted_at IS NULL;
+-- Additional indexes for frequent queries
+CREATE INDEX IF NOT EXISTS ix_user_email_active ON security."user" (email) WHERE deleted_at IS NULL;
+CREATE INDEX IF NOT EXISTS ix_role_code_active ON security.role (code) WHERE is_active;
+CREATE INDEX IF NOT EXISTS ix_module_code ON security.module (code);

@@ -1,0 +1,2 @@
+ALTER TABLE parameterization.status_transition DROP CONSTRAINT IF EXISTS fk_status_transition_to_status;
+ALTER TABLE parameterization.status_transition DROP CONSTRAINT IF EXISTS fk_status_transition_from_status;

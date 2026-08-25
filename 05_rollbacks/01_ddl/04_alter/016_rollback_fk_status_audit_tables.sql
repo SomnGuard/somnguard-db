@@ -1,0 +1,5 @@
+ALTER TABLE monitoring.notification_status_audit DROP CONSTRAINT IF EXISTS fk_notification_status_audit_notification;
+ALTER TABLE device_management.device_config_status_audit DROP CONSTRAINT IF EXISTS fk_device_config_status_audit_config;
+ALTER TABLE telemetry_service.event_status_audit DROP CONSTRAINT IF EXISTS fk_event_status_audit_event;
+ALTER TABLE device_management.device_status_audit DROP CONSTRAINT IF EXISTS fk_device_status_audit_device;
+ALTER TABLE security.user_status_audit DROP CONSTRAINT IF EXISTS fk_user_status_audit_user;

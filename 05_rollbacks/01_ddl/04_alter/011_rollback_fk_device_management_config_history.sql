@@ -1,0 +1,1 @@
+ALTER TABLE device_management.device_config_history DROP CONSTRAINT IF EXISTS fk_device_config_history_config;
