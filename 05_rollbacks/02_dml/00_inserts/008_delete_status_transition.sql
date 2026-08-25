@@ -1,0 +1,1 @@
+DELETE FROM parameterization.status_transition WHERE from_status LIKE 'DEVICE_%' OR from_status LIKE 'EVENT_%' OR from_status LIKE 'USER_%' OR from_status LIKE 'DEVICE_CONFIG_%' OR from_status LIKE 'NOTIFICATION_%';
