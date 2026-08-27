@@ -1,2 +1,1 @@
-DELETE FROM parameterization.event_category
-WHERE code IN ('somnolencia_fatiga', 'distraccion', 'cinturon_seguridad', 'sistema');
+DELETE FROM parameterization.event_category WHERE code IN ('SOMNOLENCE', 'DISTRACTION', 'SEATBELT', 'SYSTEM');

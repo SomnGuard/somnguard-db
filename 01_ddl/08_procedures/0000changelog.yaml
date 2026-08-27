@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No stored procedures currently
+  # Placeholder for future procedures if needed

@@ -1,1 +1,31 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-analytics-v-event-timeline
+      author: CristianJPalma
+      labels: "BD-01,ddl,materialized-views,analytics"
+      comment: Creates the analytics.v_event_timeline materialized view
+      changes:
+        - sqlFile:
+            path: 001_create_analytics_v_event_timeline.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/06_materialized_views/001_drop_analytics_v_event_timeline.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 002-create-analytics-v-metrics-daily
+      author: CristianJPalma
+      labels: "BD-01,ddl,materialized-views,analytics"
+      comment: Creates the analytics.v_metrics_daily materialized view
+      changes:
+        - sqlFile:
+            path: 002_create_analytics_v_metrics_daily.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/06_materialized_views/002_drop_analytics_v_metrics_daily.sql
+            relativeToChangelogFile: true
+            stripComments: false

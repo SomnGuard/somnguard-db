@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No regular views currently; materialized views in 06_materialized_views
+  # Placeholder for future views if needed

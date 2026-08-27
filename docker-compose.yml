@@ -30,6 +30,8 @@ services:
   liquibase:
     build: .
     image: somnguard-liquibase:latest
+    profiles:
+      - tooling
     depends_on:
       postgres:
         condition: service_healthy

@@ -1,0 +1,1 @@
+DELETE FROM parameterization.status_category WHERE code IN ('ACTIVE', 'INACTIVE', 'PENDING', 'ERROR', 'ARCHIVED');

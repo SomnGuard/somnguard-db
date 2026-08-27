@@ -1,0 +1,2 @@
+DROP INDEX IF EXISTS idx_notification_status_audit_notif_time;
+DROP TABLE IF EXISTS monitoring.notification_status_audit CASCADE;
