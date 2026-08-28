@@ -1,9 +1,9 @@
 databaseChangeLog:
   - changeSet:
-      id: 60888613-1e9b-40bc-b368-86d62f9cb2c1
-      author: JuanCarlos
-      labels: "BD-01-dev,dml,base,inserts"
-      comment: Seeds the initial event_category catalog records.
+      id: 001-insert-event-category
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial event_category catalog records
       changes:
         - sqlFile:
             path: 001_insert_event_category.sql
@@ -15,10 +15,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: ec598f64-368d-44c9-b232-4d838982a023
-      author: JuanCarlos
-      labels: "BD-01-dev,dml,base,inserts"
-      comment: Seeds the initial severity catalog records.
+      id: 002-insert-severity
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial severity catalog records
       changes:
         - sqlFile:
             path: 002_insert_severity.sql
@@ -30,10 +30,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 10501eff-67ab-4a6a-acc0-ce51b64f4fd7
-      author: JuanCarlos
-      labels: "BD-01-dev,dml,base,inserts"
-      comment: Seeds the initial media_type catalog records.
+      id: 003-insert-media-type
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial media_type catalog records
       changes:
         - sqlFile:
             path: 003_insert_media_type.sql
@@ -45,10 +45,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 1ae8d836-471d-4c90-946a-a33c001a9627
-      author: JuanCarlos
-      labels: "BD-01-dev,dml,base,inserts"
-      comment: Seeds the initial sound_pattern catalog records.
+      id: 004-insert-sound-pattern
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial sound_pattern catalog records
       changes:
         - sqlFile:
             path: 004_insert_sound_pattern.sql
@@ -60,10 +60,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 88183b2e-b66d-4fd5-8229-b329fc8314a3
-      author: JuanCarlos
-      labels: "BD-01-dev,dml,base,inserts"
-      comment: Seeds the initial event_type catalog records referencing existing categories, severities and sound patterns.
+      id: 005-insert-event-type
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial event_type catalog records
       changes:
         - sqlFile:
             path: 005_insert_event_type.sql
@@ -72,5 +72,110 @@ databaseChangeLog:
       rollback:
         - sqlFile:
             path: ../../05_rollbacks/02_dml/00_inserts/005_delete_event_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 006-insert-status-category
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial status_category catalog records
+      changes:
+        - sqlFile:
+            path: 006_insert_status_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/006_delete_status_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 007-insert-status
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial status catalog records
+      changes:
+        - sqlFile:
+            path: 007_insert_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/007_delete_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 008-insert-status-transition
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,parameterization"
+      comment: Seeds initial status_transition catalog records
+      changes:
+        - sqlFile:
+            path: 008_insert_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/008_delete_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 009-insert-security-roles
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,security"
+      comment: Seeds initial security roles
+      changes:
+        - sqlFile:
+            path: 009_insert_security_roles.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/009_delete_security_roles.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 010-insert-security-modules
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,security"
+      comment: Seeds initial security modules
+      changes:
+        - sqlFile:
+            path: 010_insert_security_modules.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/010_delete_security_modules.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 011-insert-security-features
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,security"
+      comment: Seeds initial security features
+      changes:
+        - sqlFile:
+            path: 011_insert_security_features.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/011_delete_security_features.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 012-insert-security-role-feature
+      author: CristianJPalma
+      labels: "BD-01,dml,inserts,security"
+      comment: Seeds initial security role_feature assignments
+      changes:
+        - sqlFile:
+            path: 012_insert_security_role_feature.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/012_delete_security_role_feature.sql
             relativeToChangelogFile: true
             stripComments: false

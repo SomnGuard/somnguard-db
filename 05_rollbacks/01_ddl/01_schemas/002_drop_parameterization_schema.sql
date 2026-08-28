@@ -1,1 +1,1 @@
-DROP SCHEMA IF EXISTS parameterization;
+DROP SCHEMA IF EXISTS parameterization CASCADE;

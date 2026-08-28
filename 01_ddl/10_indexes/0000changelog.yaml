@@ -1,9 +1,9 @@
 databaseChangeLog:
   - changeSet:
       id: 001-create-security-indexes
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,indexes,security"
-      comment: Creates indexes for security module (FKs and unique columns)
+      comment: Creates indexes for security schema
       changes:
         - sqlFile:
             path: 001_create_security_indexes.sql
@@ -16,9 +16,9 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 002-create-parameterization-indexes
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,indexes,parameterization"
-      comment: Creates indexes for parameterization module (FKs)
+      comment: Creates indexes for parameterization schema
       changes:
         - sqlFile:
             path: 002_create_parameterization_indexes.sql
@@ -31,9 +31,9 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 003-create-device-management-indexes
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,indexes,device-management"
-      comment: Creates indexes for device_management module (FKs)
+      comment: Creates indexes for device_management schema
       changes:
         - sqlFile:
             path: 003_create_device_management_indexes.sql
@@ -46,9 +46,9 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 004-create-telemetry-service-indexes
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,indexes,telemetry-service"
-      comment: Creates indexes for telemetry_service module (FKs)
+      comment: Creates indexes for telemetry_service schema
       changes:
         - sqlFile:
             path: 004_create_telemetry_service_indexes.sql
@@ -61,9 +61,9 @@ databaseChangeLog:
             stripComments: false
   - changeSet:
       id: 005-create-monitoring-indexes
-      author: somnguard
+      author: CristianJPalma
       labels: "BD-01,ddl,indexes,monitoring"
-      comment: Creates indexes for monitoring module (FKs)
+      comment: Creates indexes for monitoring schema
       changes:
         - sqlFile:
             path: 005_create_monitoring_indexes.sql
@@ -72,5 +72,20 @@ databaseChangeLog:
       rollback:
         - sqlFile:
             path: ../../05_rollbacks/01_ddl/10_indexes/005_drop_monitoring_indexes.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 006-create-analytics-indexes
+      author: CristianJPalma
+      labels: "BD-01,ddl,indexes,analytics"
+      comment: Creates indexes for analytics schema (materialized views)
+      changes:
+        - sqlFile:
+            path: 006_create_analytics_indexes.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/006_drop_analytics_indexes.sql
             relativeToChangelogFile: true
             stripComments: false

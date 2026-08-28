@@ -5,6 +5,9 @@
 
 # === Liquibase ===
 liquibase-output.txt
+rollback-evidence.log
+rollback-evidence-*.log
+.tmp-rollback-test.env
 
 # === OS ===
 Thumbs.db

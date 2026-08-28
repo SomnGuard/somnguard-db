@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No custom types/DOMAINs required currently
+  # Placeholder for future custom types if needed

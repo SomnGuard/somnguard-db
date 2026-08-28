@@ -1,0 +1,1 @@
+DELETE FROM security.role WHERE code IN ('admin', 'user');

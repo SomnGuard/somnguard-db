@@ -1,0 +1,1 @@
+DROP MATERIALIZED VIEW IF EXISTS analytics.v_metrics_daily;

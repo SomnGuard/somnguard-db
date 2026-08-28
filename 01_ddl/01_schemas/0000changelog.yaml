@@ -1,9 +1,9 @@
 databaseChangeLog:
   - changeSet:
-      id: 7fd105c3-f716-491f-9335-ee4e9afd303e
+      id: 001-create-security-schema
       author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,schemas"
-      comment: Creates the security schema for the database baseline.
+      labels: "BD-01,ddl,schemas,security"
+      comment: Creates the security schema
       changes:
         - sqlFile:
             path: 001_create_security_schema.sql
@@ -15,10 +15,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 2bc3580d-d8ab-43e8-b6e3-65f2b1514a5c
+      id: 002-create-parameterization-schema
       author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,schemas"
-      comment: Creates the parameterization schema for the database baseline.
+      labels: "BD-01,ddl,schemas,parameterization"
+      comment: Creates the parameterization schema
       changes:
         - sqlFile:
             path: 002_create_parameterization_schema.sql
@@ -30,10 +30,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 3e060256-a9fe-45d2-a77d-6005f2e4b75b
+      id: 003-create-device-management-schema
       author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,schemas"
-      comment: Creates the device_management schema for the database baseline.
+      labels: "BD-01,ddl,schemas,device-management"
+      comment: Creates the device_management schema
       changes:
         - sqlFile:
             path: 003_create_device_management_schema.sql
@@ -45,10 +45,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: a33e589c-cb36-424a-9d0a-c16e48d22846
+      id: 004-create-telemetry-service-schema
       author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,schemas"
-      comment: Creates the telemetry_service schema for the database baseline.
+      labels: "BD-01,ddl,schemas,telemetry-service"
+      comment: Creates the telemetry_service schema
       changes:
         - sqlFile:
             path: 004_create_telemetry_service_schema.sql
@@ -60,10 +60,10 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 6260849e-36ce-40d8-8ae8-13505815b557
+      id: 005-create-monitoring-schema
       author: JuanCarlos
-      labels: "BD-01-dev,ddl,base,schemas"
-      comment: Creates the monitoring schema for the database baseline.
+      labels: "BD-01,ddl,schemas,monitoring"
+      comment: Creates the monitoring schema
       changes:
         - sqlFile:
             path: 005_create_monitoring_schema.sql
@@ -72,5 +72,20 @@ databaseChangeLog:
       rollback:
         - sqlFile:
             path: ../../05_rollbacks/01_ddl/01_schemas/005_drop_monitoring_schema.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 006-create-analytics-schema
+      author: CristianJPalma
+      labels: "BD-01,ddl,schemas,analytics"
+      comment: Creates the analytics schema
+      changes:
+        - sqlFile:
+            path: 006_create_analytics_schema.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/01_schemas/006_drop_analytics_schema.sql
             relativeToChangelogFile: true
             stripComments: false

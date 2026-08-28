@@ -195,107 +195,242 @@ databaseChangeLog:
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 014-create-device-management-device
+      id: 014-create-parameterization-status-category
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,parameterization"
+      comment: Creates the parameterization.status_category table
+      changes:
+        - sqlFile:
+            path: 014_create_parameterization_status_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/014_drop_parameterization_status_category.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 015-create-parameterization-status
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,parameterization"
+      comment: Creates the parameterization.status table
+      changes:
+        - sqlFile:
+            path: 015_create_parameterization_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/015_drop_parameterization_status.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 016-create-parameterization-status-transition
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,parameterization"
+      comment: Creates the parameterization.status_transition table
+      changes:
+        - sqlFile:
+            path: 016_create_parameterization_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/016_drop_parameterization_status_transition.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 017-create-device-management-device
       author: CristianJPalma
       labels: "BD-01,ddl,tables,device-management"
       comment: Creates the device_management.device table
       changes:
         - sqlFile:
-            path: 014_create_device_management_device.sql
+            path: 017_create_device_management_device.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/014_drop_device_management_device.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/017_drop_device_management_device.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 015-create-device-management-device-assignment
+      id: 018-create-device-management-device-assignment
       author: CristianJPalma
       labels: "BD-01,ddl,tables,device-management"
       comment: Creates the device_management.device_assignment table
       changes:
         - sqlFile:
-            path: 015_create_device_management_device_assignment.sql
+            path: 018_create_device_management_device_assignment.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/015_drop_device_management_device_assignment.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/018_drop_device_management_device_assignment.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 016-create-device-management-config
+      id: 019-create-device-management-device-config
       author: CristianJPalma
       labels: "BD-01,ddl,tables,device-management"
       comment: Creates the device_management.device_config table
       changes:
         - sqlFile:
-            path: 016_create_device_management_device_config.sql
+            path: 019_create_device_management_device_config.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/016_drop_device_management_device_config.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/019_drop_device_management_device_config.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 017-create-telemetry-service-event
+      id: 020-create-device-management-device-config-history
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,device-management"
+      comment: Creates the device_management.device_config_history table
+      changes:
+        - sqlFile:
+            path: 020_create_device_management_device_config_history.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/020_drop_device_management_device_config_history.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 021-create-telemetry-service-event
       author: CristianJPalma
       labels: "BD-01,ddl,tables,telemetry-service"
       comment: Creates the telemetry_service.event table
       changes:
         - sqlFile:
-            path: 017_create_telemetry_service_event.sql
+            path: 021_create_telemetry_service_event.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/017_drop_telemetry_service_event.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/021_drop_telemetry_service_event.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 018-create-telemetry-service-evidence
+      id: 022-create-telemetry-service-evidence
       author: CristianJPalma
       labels: "BD-01,ddl,tables,telemetry-service"
       comment: Creates the telemetry_service.evidence table
       changes:
         - sqlFile:
-            path: 018_create_telemetry_service_evidence.sql
+            path: 022_create_telemetry_service_evidence.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/018_drop_telemetry_service_evidence.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/022_drop_telemetry_service_evidence.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 019-create-telemetry-service-alert-log
+      id: 023-create-telemetry-service-alert-log
       author: CristianJPalma
       labels: "BD-01,ddl,tables,telemetry-service"
       comment: Creates the telemetry_service.alert_log table
       changes:
         - sqlFile:
-            path: 019_create_telemetry_service_alert_log.sql
+            path: 023_create_telemetry_service_alert_log.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/019_drop_telemetry_service_alert_log.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/023_drop_telemetry_service_alert_log.sql
             relativeToChangelogFile: true
             stripComments: false
   - changeSet:
-      id: 020-create-monitoring-notification
+      id: 024-create-monitoring-notification
       author: CristianJPalma
       labels: "BD-01,ddl,tables,monitoring"
       comment: Creates the monitoring.notification table
       changes:
         - sqlFile:
-            path: 020_create_monitoring_notification.sql
+            path: 024_create_monitoring_notification.sql
             relativeToChangelogFile: true
             stripComments: false
       rollback:
         - sqlFile:
-            path: ../../05_rollbacks/01_ddl/03_tables/020_drop_monitoring_notification.sql
+            path: ../../05_rollbacks/01_ddl/03_tables/024_drop_monitoring_notification.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 025-create-security-user-status-audit
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,security"
+      comment: Creates the security.user_status_audit table
+      changes:
+        - sqlFile:
+            path: 025_create_security_user_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/025_drop_security_user_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 026-create-device-management-device-status-audit
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,device-management"
+      comment: Creates the device_management.device_status_audit table
+      changes:
+        - sqlFile:
+            path: 026_create_device_management_device_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/026_drop_device_management_device_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 027-create-telemetry-service-event-status-audit
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,telemetry-service"
+      comment: Creates the telemetry_service.event_status_audit table
+      changes:
+        - sqlFile:
+            path: 027_create_telemetry_service_event_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/027_drop_telemetry_service_event_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 028-create-device-management-device-config-status-audit
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,device-management"
+      comment: Creates the device_management.device_config_status_audit table
+      changes:
+        - sqlFile:
+            path: 028_create_device_management_device_config_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/028_drop_device_management_device_config_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 029-create-monitoring-notification-status-audit
+      author: CristianJPalma
+      labels: "BD-01,ddl,tables,monitoring"
+      comment: Creates the monitoring.notification_status_audit table
+      changes:
+        - sqlFile:
+            path: 029_create_monitoring_notification_status_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/029_drop_monitoring_notification_status_audit.sql
             relativeToChangelogFile: true
             stripComments: false

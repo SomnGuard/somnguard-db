@@ -1,0 +1,1 @@
+DELETE FROM parameterization.status WHERE code LIKE 'DEVICE_%' OR code LIKE 'EVENT_%' OR code LIKE 'USER_%' OR code LIKE 'DEVICE_CONFIG_%' OR code LIKE 'NOTIFICATION_%';

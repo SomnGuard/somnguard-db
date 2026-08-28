@@ -2,12 +2,25 @@ databaseChangeLog:
   - include:
       file: ../01_ddl/changelog.yaml
       relativeToChangelogFile: true
+      contextFilter: 01_ddl
+      labels: 01_ddl
   - include:
       file: ../02_dml/changelog.yaml
       relativeToChangelogFile: true
+      contextFilter: 02_dml
+      labels: 02_dml
   - include:
       file: ../03_dcl/changelog.yaml
       relativeToChangelogFile: true
+      contextFilter: 03_dcl
+      labels: 03_dcl
   - include:
       file: ../04_tcl/changelog.yaml
       relativeToChangelogFile: true
+      contextFilter: 04_tcl
+      labels: 04_tcl
+  - include:
+      file: ../05_rollbacks/changelog.yaml
+      relativeToChangelogFile: true
+      contextFilter: 05_rollbacks
+      labels: 05_rollbacks
