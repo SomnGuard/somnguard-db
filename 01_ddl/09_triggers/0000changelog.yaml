@@ -1,1 +1,3 @@
-databaseChangeLog: []
+databaseChangeLog:
+  # No triggers currently; status audit triggers to be added in future migration
+  # Placeholder for future triggers if needed

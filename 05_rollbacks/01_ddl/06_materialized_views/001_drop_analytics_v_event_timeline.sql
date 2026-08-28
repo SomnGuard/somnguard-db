@@ -1,0 +1,1 @@
+DROP MATERIALIZED VIEW IF EXISTS analytics.v_event_timeline;

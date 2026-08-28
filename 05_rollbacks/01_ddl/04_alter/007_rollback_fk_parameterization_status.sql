@@ -1,0 +1,1 @@
+ALTER TABLE parameterization.status DROP CONSTRAINT IF EXISTS fk_status_status_category;

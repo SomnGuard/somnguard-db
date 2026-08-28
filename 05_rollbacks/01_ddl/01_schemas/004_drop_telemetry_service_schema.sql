@@ -1,1 +1,1 @@
-DROP SCHEMA IF EXISTS telemetry_service;
+DROP SCHEMA IF EXISTS telemetry_service CASCADE;

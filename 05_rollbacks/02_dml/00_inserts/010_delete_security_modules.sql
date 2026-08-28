@@ -1,0 +1,1 @@
+DELETE FROM security.module WHERE code IN ('security', 'device_management', 'telemetry', 'monitoring', 'analytics', 'parameterization');
