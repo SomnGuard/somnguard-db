@@ -434,3 +434,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/03_tables/029_drop_monitoring_notification_status_audit.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 030-create-security-refresh-token
+      author: JuanCarlos
+      labels: "BD-01,ddl,tables,security"
+      comment: Creates the security.refresh_token table for HU-API-001 AC-002/003/004
+      changes:
+        - sqlFile:
+            path: 030_create_security_refresh_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/030_drop_security_refresh_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
