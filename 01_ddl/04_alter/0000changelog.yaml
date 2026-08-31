@@ -239,3 +239,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/016_rollback_fk_status_audit_tables.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 017-fk-security-refresh-token
+      author: JuanCarlos
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FKs from security.refresh_token to security.user
+      changes:
+        - sqlFile:
+            path: 017_fk_security_refresh_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/017_rollback_fk_security_refresh_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
