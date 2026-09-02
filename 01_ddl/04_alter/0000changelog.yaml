@@ -254,3 +254,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/017_rollback_fk_security_refresh_token.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 018-fk-security-email-verification
+      author: JuanCarlos
+      labels: "BD-01,ddl,alter,security"
+      comment: Adds FK from security.email_verification to security.user
+      changes:
+        - sqlFile:
+            path: 018_fk_security_email_verification.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/018_rollback_fk_security_email_verification.sql
+            relativeToChangelogFile: true
+            stripComments: false
