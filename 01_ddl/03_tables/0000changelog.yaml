@@ -449,3 +449,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/03_tables/030_drop_security_refresh_token.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 031-create-security-email-verification
+      author: JuanCarlos
+      labels: "BD-01,ddl,tables,security"
+      comment: Creates the security.email_verification table for HU-API-001 email verification
+      changes:
+        - sqlFile:
+            path: 031_create_security_email_verification.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/031_drop_security_email_verification.sql
+            relativeToChangelogFile: true
+            stripComments: false
