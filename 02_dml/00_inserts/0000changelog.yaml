@@ -107,6 +107,7 @@ databaseChangeLog:
   - changeSet:
       id: 008-insert-status-transition
       author: CristianJPalma
+      runOnChange: true
       labels: "BD-01,dml,inserts,parameterization"
       comment: Seeds initial status_transition catalog records
       changes:
@@ -152,6 +153,7 @@ databaseChangeLog:
   - changeSet:
       id: 011-insert-security-features
       author: CristianJPalma
+      runOnChange: true
       labels: "BD-01,dml,inserts,security"
       comment: Seeds initial security features
       changes:
@@ -167,6 +169,7 @@ databaseChangeLog:
   - changeSet:
       id: 012-insert-security-role-feature
       author: CristianJPalma
+      runOnChange: true
       labels: "BD-01,dml,inserts,security"
       comment: Seeds initial security role_feature assignments
       changes:

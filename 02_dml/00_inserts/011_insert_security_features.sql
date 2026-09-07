@@ -10,6 +10,9 @@ VALUES
     (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'device_management'), 'device.read', 'Leer dispositivos', 'Ver dispositivos y asignaciones', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
     (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'device_management'), 'device.write', 'Escribir dispositivos', 'Registrar, asignar, configurar dispositivos', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
     (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'device_management'), 'device.config', 'Configurar dispositivos', 'Gestionar configuración remota', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
+    -- Device provisioning features HU-DB-003 (ADR-010, RF-DEV-10/12)
+    (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'device_management'), 'device.provision', 'Aprovisionar dispositivos', 'Crear tokens de aprovisionamiento (solo admin)', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
+    (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'device_management'), 'device.claim', 'Reclamar dispositivos', 'Reclamar dispositivo con claim_code (admin+user)', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
     -- Telemetry features
     (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'telemetry'), 'event.read', 'Leer eventos', 'Consultar eventos y evidencias', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),
     (gen_random_uuid(), (SELECT id FROM security.module WHERE code = 'telemetry'), 'event.write', 'Escribir eventos', 'Ingestar eventos (device)', NOW(), '00000000-0000-0000-0000-000000000000', NOW(), '00000000-0000-0000-0000-000000000000'),

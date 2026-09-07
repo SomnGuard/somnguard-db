@@ -1,0 +1,6 @@
+DROP INDEX IF EXISTS device_management.ix_provisioning_audit_device_id;
+DROP INDEX IF EXISTS device_management.ix_provisioning_audit_token_id;
+DROP INDEX IF EXISTS device_management.ix_device_provisioning_token_device_id;
+ALTER TABLE IF EXISTS device_management.device_provisioning_audit DROP CONSTRAINT IF EXISTS fk_provisioning_audit_device;
+ALTER TABLE IF EXISTS device_management.device_provisioning_audit DROP CONSTRAINT IF EXISTS fk_provisioning_audit_token;
+ALTER TABLE IF EXISTS device_management.device_provisioning_token DROP CONSTRAINT IF EXISTS fk_provisioning_token_device;
