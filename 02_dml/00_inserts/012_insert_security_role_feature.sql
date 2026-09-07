@@ -21,6 +21,14 @@ JOIN security.feature f ON f.module_id = (SELECT id FROM security.module WHERE c
 WHERE r.code = 'user' AND f.code IN ('device.read')
 ON CONFLICT (role_id, feature_id) DO NOTHING;
 
+-- HU-DB-003: user puede reclamar con claim_code (device.provision queda solo admin vía CROSS JOIN)
+INSERT INTO security.role_feature (id, role_id, feature_id, created_at, created_by)
+SELECT gen_random_uuid(), r.id, f.id, NOW(), '00000000-0000-0000-0000-000000000000'
+FROM security.role r
+JOIN security.feature f ON f.module_id = (SELECT id FROM security.module WHERE code = 'device_management')
+WHERE r.code = 'user' AND f.code IN ('device.claim')
+ON CONFLICT (role_id, feature_id) DO NOTHING;
+
 INSERT INTO security.role_feature (id, role_id, feature_id, created_at, created_by)
 SELECT gen_random_uuid(), r.id, f.id, NOW(), '00000000-0000-0000-0000-000000000000'
 FROM security.role r
