@@ -464,3 +464,33 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/03_tables/031_drop_security_email_verification.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 032-create-device-provisioning-token
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,tables,device-management"
+      comment: Creates the device_management.device_provisioning_token table for HU-DB-003 AC-001 (ADR-010, RF-DEV-10/11)
+      changes:
+        - sqlFile:
+            path: 032_create_device_provisioning_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/032_drop_device_provisioning_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 033-create-device-provisioning-audit
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,tables,device-management"
+      comment: Creates the device_management.device_provisioning_audit table for HU-DB-003 AC-001 (ADR-010, RF-DEV-10)
+      changes:
+        - sqlFile:
+            path: 033_create_device_provisioning_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/033_drop_device_provisioning_audit.sql
+            relativeToChangelogFile: true
+            stripComments: false
