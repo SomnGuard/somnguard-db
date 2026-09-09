@@ -269,3 +269,48 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/018_rollback_fk_security_email_verification.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 019-alter-device-claim-provisioning
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,alter,device-management"
+      comment: Adds claim_code_hash, claimed_at, provisioning_token_id (+FK) to device_management.device for HU-DB-003 AC-002 (ADR-010, RF-DEV-11/12)
+      changes:
+        - sqlFile:
+            path: 019_alter_device_management_device_claim.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/019_rollback_alter_device_management_device_claim.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 020-fk-device-provisioning
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,alter,device-management"
+      comment: Adds FKs from device_provisioning_token and device_provisioning_audit for HU-DB-003 AC-001 (ADR-010)
+      changes:
+        - sqlFile:
+            path: 020_fk_device_provisioning.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/020_rollback_fk_device_provisioning.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 021-alter-device-claim-public
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,alter,device-management"
+      comment: Replaces claim_code_hash with public reusable claim_code (UNIQUE, NOT NULL, backfilled) on device_management.device for HU-DB-003 AC-002 amendment (ADR-010, RF-DEV-12)
+      changes:
+        - sqlFile:
+            path: 021_alter_device_management_device_claim_public.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/021_rollback_alter_device_management_device_claim_public.sql
+            relativeToChangelogFile: true
+            stripComments: false
