@@ -89,3 +89,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/10_indexes/006_drop_analytics_indexes.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 007-device-assignment-user-unique
+      author: CristianJPalma
+      labels: "HU-DB-003,ddl,indexes,device-management"
+      comment: Partial UNIQUE on device_assignment(user_id) for vigente 1 user <-> 1 device (RN-DEV-01, RF-DEV-02/06)
+      changes:
+        - sqlFile:
+            path: 007_create_device_assignment_user_unique.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/007_drop_device_assignment_user_unique.sql
+            relativeToChangelogFile: true
+            stripComments: false

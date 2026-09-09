@@ -9,6 +9,9 @@ VALUES
     ('DEVICE_SUSPENDED', 'DEVICE_ACTIVE', ARRAY['admin'], 'Admin reactiva', NOW(), '00000000-0000-0000-0000-000000000000'),
     ('DEVICE_SUSPENDED', 'DEVICE_RETIRED', ARRAY['admin'], 'Admin retira device', NOW(), '00000000-0000-0000-0000-000000000000'),
     ('DEVICE_REGISTERED', 'DEVICE_RETIRED', ARRAY['admin'], 'Admin cancela alta', NOW(), '00000000-0000-0000-0000-000000000000'),
+    -- Device unassign transitions HU-DB-003 (desasociación -> REGISTERED)
+    ('DEVICE_ACTIVE', 'DEVICE_REGISTERED', ARRAY['user', 'admin'], 'Desasociación (unassign): libera device activo', NOW(), '00000000-0000-0000-0000-000000000000'),
+    ('DEVICE_ASSIGNED', 'DEVICE_REGISTERED', ARRAY['user', 'admin'], 'Desasociación (unassign): libera device asignado', NOW(), '00000000-0000-0000-0000-000000000000'),
     -- Event transitions (system only)
     ('EVENT_DETECTED', 'EVENT_REGISTERED', ARRAY['system'], 'Persistido en buffer local', NOW(), '00000000-0000-0000-0000-000000000000'),
     ('EVENT_REGISTERED', 'EVENT_SYNCHRONIZED', ARRAY['system'], 'ACK recibido de API', NOW(), '00000000-0000-0000-0000-000000000000'),

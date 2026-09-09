@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS device_management.uq_device_assignment_user_active;
