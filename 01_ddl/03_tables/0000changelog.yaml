@@ -494,3 +494,33 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/03_tables/033_drop_device_provisioning_audit.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 034-create-parameterization-global-config
+      author: CristianJPalma
+      labels: "ADR-011,ddl,tables,parameterization"
+      comment: Creates the parameterization.global_config singleton table for ADR-011 (RF-PAR-05/06, global version counter)
+      changes:
+        - sqlFile:
+            path: 034_create_parameterization_global_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/034_drop_parameterization_global_config.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 035-create-parameterization-global-config-history
+      author: CristianJPalma
+      labels: "ADR-011,ddl,tables,parameterization"
+      comment: Creates the parameterization.global_config_history append-only table for ADR-011 (version snapshots)
+      changes:
+        - sqlFile:
+            path: 035_create_parameterization_global_config_history.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/035_drop_parameterization_global_config_history.sql
+            relativeToChangelogFile: true
+            stripComments: false

@@ -182,3 +182,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/02_dml/00_inserts/012_delete_security_role_feature.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 013-insert-global-config-seed
+      author: CristianJPalma
+      labels: "ADR-011,dml,inserts,parameterization"
+      comment: Seeds parameterization.global_config singleton row (1, 1) for ADR-011
+      changes:
+        - sqlFile:
+            path: 013_insert_global_config_seed.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/013_delete_global_config_seed.sql
+            relativeToChangelogFile: true
+            stripComments: false
