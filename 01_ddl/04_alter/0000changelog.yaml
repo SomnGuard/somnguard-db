@@ -314,3 +314,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/021_rollback_alter_device_management_device_claim_public.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 022-alter-device-config-version
+      author: CristianJPalma
+      labels: "ADR-011,ddl,alter,device-management"
+      comment: Adds applied_config_version and pending_config_update (+backfill 0/FALSE) to device_management.device for ADR-011 (RF-PAR-06, lazy detection)
+      changes:
+        - sqlFile:
+            path: 022_alter_device_management_device_config_version.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/022_rollback_alter_device_management_device_config_version.sql
+            relativeToChangelogFile: true
+            stripComments: false
