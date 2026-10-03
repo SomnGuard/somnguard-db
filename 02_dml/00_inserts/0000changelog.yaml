@@ -197,3 +197,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/02_dml/00_inserts/013_delete_global_config_seed.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 014-insert-notification-templates
+      author: CristianJPalma
+      labels: "HU-API-009,dml,inserts,monitoring"
+      comment: Seeds monitoring.notification_template push/in_app for critical events (AC-002)
+      changes:
+        - sqlFile:
+            path: 014_insert_notification_templates.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/014_delete_notification_templates.sql
+            relativeToChangelogFile: true
+            stripComments: false
