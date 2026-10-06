@@ -524,3 +524,48 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/03_tables/035_drop_parameterization_global_config_history.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 036-create-monitoring-notification-template
+      author: SomnGuard
+      labels: "HU-API-009,ddl,tables,monitoring"
+      comment: Creates monitoring.notification_template for HU-API-009 AC-002 (template per event_type+severity+channel)
+      changes:
+        - sqlFile:
+            path: 036_create_monitoring_notification_template.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/036_drop_monitoring_notification_template.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 037-create-monitoring-device-token
+      author: CristianJPalma
+      labels: "HU-API-009,ddl,tables,monitoring"
+      comment: Creates monitoring.device_token for HU-API-009 AC-002 push FCM/APNs (HU-APP-002 token registry)
+      changes:
+        - sqlFile:
+            path: 037_create_monitoring_device_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/037_drop_monitoring_device_token.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 038-create-monitoring-user-notification-preference
+      author: CristianJPalma
+      labels: "HU-API-009,ddl,tables,monitoring"
+      comment: Creates monitoring.user_notification_preference for HU-API-009 AC-004 (channels, quiet hours, min severity)
+      changes:
+        - sqlFile:
+            path: 038_create_monitoring_user_notification_preference.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/038_drop_monitoring_user_notification_preference.sql
+            relativeToChangelogFile: true
+            stripComments: false

@@ -104,3 +104,18 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/10_indexes/007_drop_device_assignment_user_unique.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 008-monitoring-push-indexes
+      author: CristianJPalma
+      labels: "HU-API-009,ddl,indexes,monitoring"
+      comment: Indexes for monitoring push FKs (HU-API-009 AC-001/AC-003)
+      changes:
+        - sqlFile:
+            path: 008_create_monitoring_push_indexes.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/10_indexes/008_drop_monitoring_push_indexes.sql
+            relativeToChangelogFile: true
+            stripComments: false
