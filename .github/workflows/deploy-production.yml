@@ -51,3 +51,4 @@ jobs:
               update
 
             echo "==> Database deployment completed"
+            
