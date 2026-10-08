@@ -329,3 +329,33 @@ databaseChangeLog:
             path: ../../05_rollbacks/01_ddl/04_alter/022_rollback_alter_device_management_device_config_version.sql
             relativeToChangelogFile: true
             stripComments: false
+  - changeSet:
+      id: 023-alter-monitoring-notification-hu009
+      author: CristianJPalma
+      labels: "HU-API-009,ddl,alter,monitoring"
+      comment: Adds template_id, next_retry_at, provider_message_id + retry cap 3 to monitoring.notification (AC-002/AC-003)
+      changes:
+        - sqlFile:
+            path: 023_alter_monitoring_notification_hu009.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/023_rollback_alter_monitoring_notification_hu009.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 024-fk-monitoring-push
+      author: CristianJPalma
+      labels: "HU-API-009,ddl,alter,monitoring"
+      comment: Adds FKs for monitoring push tables (notification->template, device_token->user, preference->user)
+      changes:
+        - sqlFile:
+            path: 024_fk_monitoring_push.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/024_rollback_fk_monitoring_push.sql
+            relativeToChangelogFile: true
+            stripComments: false
