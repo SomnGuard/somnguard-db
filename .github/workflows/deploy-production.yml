@@ -34,6 +34,9 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
+            echo "==> Ensuring Liquibase runner image exists"
+            docker build -t somnguard-liquibase:latest .
+
             echo "==> Running Liquibase migrations"
             docker run --rm \
               --network somnguard-network \
