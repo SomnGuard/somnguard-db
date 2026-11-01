@@ -18,7 +18,7 @@
 set -Eeuo pipefail
 
 PORT="${PORT:-54333}"
-PROJECT="${PROJECT:-somnguard-rollback-test}"
+PROJECT="somnguard-rollback-test-${BASHPID:-$$}-$(date +%s)"
 HEALTH_TIMEOUT="${HEALTH_TIMEOUT:-90}"
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
