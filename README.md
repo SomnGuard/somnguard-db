@@ -90,3 +90,34 @@ La evidencia de la prueba se guarda en:
 ```text
 rollback-evidence.log
 ```
+
+## Backup antes de migrar y restauración
+
+Antes de ejecutar Liquibase en una base de datos persistente, crea y valida un backup:
+
+```bash
+docker compose --env-file .env up -d --wait postgres
+bash scripts/backup-postgres.sh
+```
+
+El script genera un `pg_dump` en formato custom dentro de `backups/`, usa permisos restrictivos, comprueba que el archivo no esté vacío, valida su índice con `pg_restore --list` y guarda un sidecar SHA-256. Conserva el backup en almacenamiento protegido; no lo subas al repositorio.
+
+La validación local de backup y restauración corre solamente en un contenedor PostgreSQL aislado con el directorio de datos en `tmpfs`:
+
+```bash
+bash scripts/verify-backup-restore.sh
+```
+
+Para aplicar cambios al PostgreSQL de este Compose local después de tomar el backup:
+
+```bash
+docker compose --env-file .env run --rm --build liquibase update
+```
+
+Para probar una restauración de un archivo real, inicia una instancia PostgreSQL aislada, copia/introduce el dump allí, crea una base de datos vacía y restaura con `pg_restore --exit-on-error --no-owner`. Comprueba tablas y registros de negocio antes de considerar el backup recuperable. Nunca uses una instancia con datos existentes como destino de esta prueba.
+
+### Rollback de aplicación y de esquema
+
+Un rollback del contenedor de API no revierte cambios de esquema. Identifica la imagen API previa por su SHA inmutable y vuelve a desplegarla solo si la migración es compatible hacia atrás. Si no es compatible, detén el tráfico y sigue un plan de recuperación aprobado usando el backup validado. Los comandos `rollback-count` de Liquibase pueden eliminar datos y quedan restringidos a entornos aislados o a una recuperación aprobada; no son un rollback automático de producción.
+
+El workflow de producción del API crea el backup validado antes de ejecutar las migraciones. No se ha ejecutado desde este cambio ni se ha accedido al entorno de producción.

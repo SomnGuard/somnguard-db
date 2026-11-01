@@ -25,3 +25,7 @@ jobs:
       - name: Liquibase validation and rollback verification
         run: |
           bash scripts/verify-rollback.sh
+
+      - name: Backup and isolated restore verification
+        run: |
+          bash scripts/verify-backup-restore.sh

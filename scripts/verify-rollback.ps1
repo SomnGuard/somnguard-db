@@ -1,4 +1,3 @@
-```powershell
 # scripts/verify-rollback.ps1
 #
 # Verifica que:
@@ -18,7 +17,7 @@
 $ErrorActionPreference = "Stop"
 
 $PORT = if ($env:PORT) { $env:PORT } else { "54333" }
-$PROJECT = if ($env:PROJECT) { $env:PROJECT } else { "somnguard-rollback-test" }
+$PROJECT = "somnguard-rollback-test-$([guid]::NewGuid().ToString('N'))"
 $HEALTH_TIMEOUT = if ($env:HEALTH_TIMEOUT) { [int]$env:HEALTH_TIMEOUT } else { 90 }
 
 $REPO_ROOT = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
@@ -192,12 +191,15 @@ try {
 
         switch ($status) {
             "healthy" {
-                break
             }
 
             "unhealthy" {
                 throw "PostgreSQL unhealthy."
             }
+        }
+
+        if ($status -eq "healthy") {
+            break
         }
 
         Start-Sleep -Seconds 3
@@ -434,4 +436,3 @@ catch {
     Write-Host "[ERROR] $($_.Exception.Message)"
     Cleanup 1
 }
-```
