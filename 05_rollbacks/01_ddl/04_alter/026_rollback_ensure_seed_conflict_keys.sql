@@ -1,0 +1,13 @@
+DROP INDEX IF EXISTS parameterization.ux_severity_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_media_type_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_sound_pattern_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_event_type_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_status_category_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_status_code_repair;
+DROP INDEX IF EXISTS parameterization.ux_status_transition_pair_repair;
+DROP INDEX IF EXISTS security.ux_role_code_repair;
+DROP INDEX IF EXISTS security.ux_module_code_repair;
+DROP INDEX IF EXISTS security.ux_feature_module_code_repair;
+DROP INDEX IF EXISTS security.ux_role_feature_pair_repair;
+DROP INDEX IF EXISTS parameterization.ux_global_config_id_repair;
+DROP INDEX IF EXISTS monitoring.ux_notification_template_code_repair;
