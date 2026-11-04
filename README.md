@@ -39,21 +39,25 @@ El archivo `.env` no debe subirse al repositorio.
 ### Levantar PostgreSQL
 
 ```bash
-docker compose --env-file .env up -d postgres
+docker compose --env-file .env up -d --wait postgres
 ```
+
+Este Compose es dueño de PostgreSQL y crea la red `DATABASE_NETWORK` (por defecto `somnguard-backend`). También registra el alias `somnguard-postgres` en esa red. `somnguard-api` se conecta a ese alias desde su propio Compose; no levanta otra base. Mantén el mismo valor de `DATABASE_NETWORK`, nombre de base y credenciales en el `.env` del API.
 
 ### Construir Liquibase y ejecutar las migraciones
 
 ```bash
-docker compose --env-file .env run --rm --build liquibase update
+docker compose --env-file .env --profile tooling run --build --rm liquibase update
 ```
+
+Después de que PostgreSQL esté healthy y las migraciones hayan terminado, inicia `somnguard-api`. La API usa la red compartida y el alias `somnguard-postgres`; no copies el servicio PostgreSQL ni el servicio Liquibase a su Compose.
 
 Este comando construye la imagen de Liquibase, ejecuta los changesets pendientes y elimina el contenedor de Liquibase al finalizar.
 
 ### Consultar el estado de las migraciones
 
 ```bash
-docker compose --env-file .env run --rm liquibase status --verbose
+docker compose --env-file .env --profile tooling run --rm liquibase status --verbose
 ```
 ---
 ## Rollbacks
@@ -63,7 +67,7 @@ docker compose --env-file .env run --rm liquibase status --verbose
 Liquibase permite revertir una cantidad determinada de changesets aplicados mediante `rollback-count`.
 Por ejemplo, para revertir el úlitmo changeset aplicado:
 ```bash
-docker compose --env-file .env run --rm liquibase rollbackCount 1
+docker compose --env-file .env --profile tooling run --rm liquibase rollback-count 1
 ```
 
 ### Verificar rollbacks automáticamente
@@ -111,7 +115,7 @@ bash scripts/verify-backup-restore.sh
 Para aplicar cambios al PostgreSQL de este Compose local después de tomar el backup:
 
 ```bash
-docker compose --env-file .env run --rm --build liquibase update
+docker compose --env-file .env --profile tooling run --rm --build liquibase update
 ```
 
 Para probar una restauración de un archivo real, inicia una instancia PostgreSQL aislada, copia/introduce el dump allí, crea una base de datos vacía y restaura con `pg_restore --exit-on-error --no-owner`. Comprueba tablas y registros de negocio antes de considerar el backup recuperable. Nunca uses una instancia con datos existentes como destino de esta prueba.
