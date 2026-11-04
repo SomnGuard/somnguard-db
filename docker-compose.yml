@@ -17,6 +17,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+    networks:
+      database:
+        aliases:
+          - somnguard-postgres
+
     healthcheck:
       test:
         [
@@ -43,7 +48,13 @@ services:
       LIQUIBASE_COMMAND_USERNAME: ${POSTGRES_USER:?Set POSTGRES_USER}
       LIQUIBASE_COMMAND_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
       LIQUIBASE_COMMAND_CONTEXTS: ${LIQUIBASE_CONTEXTS:-01_ddl,02_dml,03_dcl,04_tcl}
+    networks:
+      - database
     restart: "no"
 
 volumes:
   postgres_data:
+
+networks:
+  database:
+    name: ${DATABASE_NETWORK:-somnguard-backend}
