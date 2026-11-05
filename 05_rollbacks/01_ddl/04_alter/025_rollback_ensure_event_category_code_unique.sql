@@ -1,0 +1,1 @@
+DROP INDEX IF EXISTS parameterization.ux_event_category_code_repair;
